@@ -1,0 +1,352 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+    height: 100vh;
+    background-color: #181818;
+    background-repeat: repeat-y;
+    background-size: auto;
+    background-position: center;
+    overflow: auto;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+a:hover {
+    color: #ffc04b;
+    border-bottom: 1px solid #ffc04b;
+}
+
+/* navbar */
+
+header {
+    width: 100%;
+    background: transparent;
+    position: fixed; 
+    top: 0;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    transition: background-color 0.3s ease-in-out;
+}
+
+header.scrolled {
+    background-color: #181818;
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+}
+
+.navbar {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar .logo a {
+    font-size: 19px;
+    font-weight: 600;
+    font-family: "Josefin Sans", Arial, sans-serif;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #fff;
+    display: block;
+    text-align: center;
+    border-bottom: none;
+}
+
+.navbar .logo:hover a {
+    color: #ffc04b;
+}
+
+.navbar .logo small {
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 4rem;
+}
+
+.navbar .cart a {
+    border-bottom: none;
+}
+
+.navbar .toggle-btn {
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: none;
+}
+
+/* dropdown menu */
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    right: 2rem;
+    top: 105px;
+    max-height: 0;
+    width: 300px;
+    background-color: #181818;
+    backdrop-filter: blur(3px);
+    border-radius: 5px;
+    overflow: hidden;
+    transition: max-height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.dropdown-menu.open {
+    max-height: 275px;
+}
+
+.dropdown-menu li {
+    padding: 0.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* responsive */
+
+@media (max-width: 992px) {
+    .navbar .links,
+    .navbar .cart {
+        display: none;
+    }
+
+    .navbar .toggle-btn {
+        display: block;
+    }
+
+    .dropdown-menu {
+        display: block;
+    }
+}
+
+@media (max-width: 576px) {
+    .dropdown-menu {
+        left: 2rem;
+        width: unset;
+    }
+}
+
+/* carousel */
+
+.carousel {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh; 
+    overflow: hidden;
+    z-index: 1; 
+}
+
+.carousel-item {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: opacity 1s ease-in-out;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.carousel-item.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); 
+}
+
+.container {
+    position: relative;
+    z-index: 10;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    height: 100%; 
+}
+
+.carousel .logo {
+    margin-bottom: 5rem;
+}
+
+.carousel .logo a {
+    font-size: 19px;
+    font-weight: 600;
+    font-family: "Josefin Sans", Arial, sans-serif;
+    text-transform: uppercase;
+    line-height: 1;
+    color: #fff;
+    display: block;
+    border-bottom: none;
+}
+
+.carousel .logo:hover a {
+    color: #ffc04b;
+}
+
+.carousel .logo small {
+    font-size: 12px;
+    font-weight: 400;
+    display: block;
+    text-align: center;
+    letter-spacing: 3px;
+}
+
+.introduction {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.subheading {
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #ffffff;
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+p {
+    font-size: 1.1rem;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+/* buttons */
+
+.btn-container {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-buy, .btn-menu {
+    display: inline-block;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    border-radius: 0px;
+    margin-right: 10px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.btn-buy {
+    background-color: transparent;
+    color: #e9ae42;
+    border: 2px solid #e9ae42; 
+}
+
+.btn-menu {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff; 
+}
+
+.btn-buy:hover {
+    background-color: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+}
+
+.btn-menu:hover {
+    background-color: transparent;
+    color: #e9ae42;
+    border: 2px solid #e9ae42;
+}
+
+/* footer */
+
+.footer {
+    background-color: #181818;
+    color: white; 
+    padding: 50px 20px;  
+    position: relative; 
+    z-index: 1; 
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; 
+    margin-top: 0;
+}
+
+.footer .overlay {
+    display: none; 
+}
+
+.footer .logo {
+    font-size: 18px;
+    font-weight: 600;
+    font-family: "Josefin Sans", Arial, sans-serif;
+    text-transform: uppercase;
+    color: #fff;
+    border-bottom: none;
+    letter-spacing: 2px;
+    margin-left: 3rem; 
+    text-align: left; 
+}
+
+.footer .contact p {
+    margin-left: 3rem; 
+    text-decoration: none;
+    color: #fff;
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-align: left; 
+}
+
+.footer .socials {
+    margin-left: 3rem; 
+    text-align: left;
+}
+
+.footer .socials:hover a {
+    border-bottom: none;
+}
